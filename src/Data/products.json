@@ -1,0 +1,21 @@
+[
+    {
+      "id": "prod_1",
+      "name": "T-Shirt",
+      "priceId": "price_1RFvH4JusurZrg7fApKnck9y",
+      "description": "Soft cotton tee",
+      "price": 20,
+      "currency": "USD",
+      "image": "/images/tshirt.jpg"
+    },
+    {
+      "id": "prod_2",
+      "name": "Mug",
+      "priceId": "price_1RGHiZJusurZrg7fJQ34IzB4",
+      "description": "Ceramic coffee mug",
+      "price": 12,
+      "currency": "USD",
+      "image": "/images/mug.jpg"
+    }
+  ]
+  

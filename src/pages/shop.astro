@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+
+const products = [
+  {
+    name: "T-Shirt",
+    description: "Comfy cotton tee",
+    price: "$20.00",
+    image: "/images/tshirt.jpg",
+    link: "https://buy.stripe.com/test_ABC123xyz"
+  },
+  {
+    name: "Mug",
+    description: "Perfect for coffee lovers",
+    price: "$12.00",
+    image: "/images/mug.jpg",
+    link: "https://buy.stripe.com/test_DEF456uvw"
+  }
+];
+---
+
+<Layout title="Shop" description="Buy securely using Stripe" pubDate={new Date()}>
+  <h1>Our Products</h1>
+
+  <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+    {products.map(product => (
+      <div style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+        <img src={product.image} alt={product.name} style="max-width: 100%; border-radius: 6px;" />
+        <h2>{product.name}</h2>
+        <p>{product.description}</p>
+        <strong>{product.price}</strong><br />
+        <button onclick={`openStripePopup('${product.link}')`} style="margin-top: 1rem;">
+          Buy Now
+        </button>
+      </div>
+    ))}
+  </div>
+
+  <script>
+    function openStripePopup(link) {
+      window.open(
+        link,
+        "StripeCheckout",
+        "width=500,height=700,scrollbars=yes"
+      );
+    }
+  </script>
+</Layout>
