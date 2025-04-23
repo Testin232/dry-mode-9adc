@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
 import astroIcon from "astro-icon"; // 👈 Add this line
 
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://t1grid.com",
