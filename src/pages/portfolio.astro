@@ -1,5 +1,8 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const tiles = [
   {
@@ -26,24 +29,31 @@ const tiles = [
 ];
 ---
 
-<Layout
-  title="Portfolio"
-  description="A sticky-note view of what I can help you with."
-  pubDate={new Date('2025-04-23')}
-  heroImage="/blog-placeholder-about.jpg"
->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tiles">
-    {tiles.map(tile => (
-      <div
-        class={`tile p-4 rounded-xl shadow-md cursor-pointer transition-all duration-300 ${tile.color}`}
-        data-id={tile.id}
-      >
-        <h2 class="text-xl font-bold">{tile.title}</h2>
-        <p class="text-sm">{tile.intro}</p>
-        <p class="tile-details mt-2 text-sm hidden">{tile.details}</p>
-      </div>
-    ))}
-  </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Portfolio | T1 Grid" description="Explore my consulting and software projects" />
+  </head>
+  <body>
+    <Header />
+    <main class="max-w-5xl mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center mb-8">What I Can Help You With</h1>
 
-  <script type="module" src="/js/tileToggle.js" />
-</Layout>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tiles">
+        {tiles.map(tile => (
+          <div
+            class={`tile p-4 rounded-xl shadow-md cursor-pointer transition-all duration-300 ${tile.color}`}
+            data-id={tile.id}
+          >
+            <h2 class="text-xl font-bold">{tile.title}</h2>
+            <p class="text-sm">{tile.intro}</p>
+            <p class="tile-details mt-2 text-sm hidden">{tile.details}</p>
+          </div>
+        ))}
+      </div>
+    </main>
+    <Footer />
+
+    <script type="module" src="/js/tileToggle.js" />
+  </body>
+</html>
