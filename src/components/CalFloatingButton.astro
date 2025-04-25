@@ -29,22 +29,25 @@
     };
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  Cal("init", "meeting", {
-    origin: "https://cal.com",
-    floatingButton: {
-      calLink: "teresew/intro",
-      config: {
-        layout: "month_view",
-        style: {
-          backgroundColor: "#60739F",
-          color: "#FFFFFF"
+  window.addEventListener("DOMContentLoaded", () => {
+    Cal("init", "meeting", {
+      origin: "https://cal.com",
+      floatingButton: {
+        calLink: "teresew/intro", // Make sure this Cal link exists and is public
+        config: {
+          layout: "month_view",
+          style: {
+            backgroundColor: "#60739F", // Button background
+            color: "#FFFFFF"             // Button text colour
+          }
         }
       }
-    }
-  });
+    });
 
-  Cal.ns.meeting("ui", {
-    hideEventTypeDetails: false,
-    layout: "month_view"
+    /* Optional: If you still want UI settings like hiding event details */
+    // Cal.ns.meeting("ui", {
+    //   hideEventTypeDetails: false,
+    //   layout: "month_view"
+    // });
   });
 </script>
