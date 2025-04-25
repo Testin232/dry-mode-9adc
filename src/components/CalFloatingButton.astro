@@ -30,12 +30,30 @@
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
   Cal("init", "meeting", { origin: "https://cal.com" });
-  Cal.ns.meeting("floatingButton", {
+
+
+  /*Cal.ns.meeting("floatingButton", {
     calLink: "teresew/meeting",
     config: { layout: "month_view" }
-  });
+  });*/
+
+  Cal.ns.meeting("floatingButton", {
+  calLink: "teresew/meeting",
+  config: {
+    layout: "month_view",
+    style: {
+      backgroundColor: "#60739F",
+      color: "#ffffff"
+    }
+  }
+});
+
+  
   Cal.ns.meeting("ui", {
     hideEventTypeDetails: false,
     layout: "month_view"
   });
 </script>
+
+
+
