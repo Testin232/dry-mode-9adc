@@ -14,29 +14,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			
-			
-			
-			
 			main {
 				width: calc(100% - 2em);
 				max-width: 100%;
 				margin: 0;
-				
-				background-image: url('/pattern.png'); /* use your uploaded file */
+
+				background-image: url('/pattern.svg'); /* your pattern path */
 				background-repeat: repeat;
-				background-size: 40px 40px;
+				background-size: 40px 40px; /* adjust if needed */
+				background-position: top center;
+				background-attachment: fixed; /* makes it stay in place */
 			}
-			
-			
-
-
-
-
-
-
-
-
 			.hero-image {
 				width: 100%;
 			}
@@ -74,9 +62,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-
-
-
 		<main>
 			<article>
 				<div class="hero-image">
@@ -101,8 +86,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 			</article>
 		</main>
-
-
 		<Footer />
 	</body>
 </html>
