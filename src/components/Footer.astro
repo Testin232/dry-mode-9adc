@@ -2,11 +2,12 @@
 const today = new Date();
 import CalFloatingButton from './CalFloatingButton.astro';
 import { Icon } from 'astro-icon/components';
+import { SITE_TITLE } from '../consts';
 
 ---
 
 <footer>
-	&copy; T1 grid {today.getFullYear()}. All rights reserved.
+	&copy; {SITE_TITLE} {today.getFullYear()}. All rights reserved.
 	<div class="social-links">
 
 		<a href="https://www.linkedin.com/company/t1-grid" target="_blank">
