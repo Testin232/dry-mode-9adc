@@ -86,13 +86,19 @@ import { SITE_TITLE } from '../consts';
       </div>
     </main>
 
-    <!-- Brevo + Turnstile Scripts -->
+    <!-- Scripts for Brevo and Turnstile -->
     <script is:inline>
+      // @ts-ignore
       window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+      // @ts-ignore
       window.LOCALE = 'en';
+      // @ts-ignore
       window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Invalid information. Please check and try again.";
+      // @ts-ignore
       window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank.";
+      // @ts-ignore
       window.GENERIC_INVALID_MESSAGE = "Invalid information. Please check and try again.";
+      // @ts-ignore
       window.translation = {
         common: {
           selectedList: '{quantity} list selected',
@@ -102,10 +108,25 @@ import { SITE_TITLE } from '../consts';
         }
       };
       var AUTOHIDE = Boolean(0);
+
+      // Faking reCAPTCHA for Brevo using Turnstile
+      window.onloadTurnstileCallback = function () {
+        // @ts-ignore
+        turnstile.render('.cf-turnstile', {
+          sitekey: '0x4AAAAAABVMBkbBSB8CZusb',
+          callback: function (token) {
+            window.grecaptcha = {
+              getResponse: function () {
+                return token;
+              }
+            };
+          }
+        });
+      };
     </script>
 
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
 
   </body>
 </html>
