@@ -1,0 +1,167 @@
+---
+// You can leave the frontmatter block empty if you don't need server-side logic
+---
+
+<!-- Begin Brevo Form -->
+<!-- START - Recommended to place the below code in head tag of your website HTML -->
+<style>
+    @font-face {
+      font-display: block;
+      font-family: Roboto;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 600;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff");
+    }
+    @font-face {
+      font-display: fallback;
+      font-family: Roboto;
+      font-weight: 700;
+      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"),
+           url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff");
+    }
+    #sib-container input::placeholder,
+    #sib-container textarea::placeholder {
+      text-align: left;
+      font-family: Helvetica, sans-serif;
+      color: #c0ccda;
+    }
+    #sib-container a {
+      text-decoration: underline;
+      color: #2BB2FC;
+    }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
+  <!-- END -->
+  
+  <!-- START - Form Placement -->
+  <div class="sib-form" style="text-align: center; background-color: #80a4dd;">
+    <div id="sib-form-container" class="sib-form-container">
+      <!-- Error message -->
+      <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
+        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+          <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+            <path d="..."></path> <!-- SVG path skipped to keep it short, you already have it -->
+          </svg>
+          <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+        </div>
+      </div>
+  
+      <!-- Success message -->
+      <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
+        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+          <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+            <path d="..."></path> <!-- SVG path skipped -->
+          </svg>
+          <span class="sib-form-message-panel__inner-text">Your subscription has been successful.</span>
+        </div>
+      </div>
+  
+      <!-- Form content -->
+      <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(23,23,23,0.73); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr;">
+        <form id="sib-form" method="POST" action="https://sibforms.com/serve/MUIFAMnaB8VdmegJ2Xszjd8tyQDw0NNs9zbVgx-49UGfKoMDOzXmTLkVhpKC9UcNoiPggioHqCO8Ew6Uk9DyNDnbk9IUk8LPtfRn12qLoWn5e9qAo4vk1Y7i8dgAj9pQEveJbuTsnBgT3XQ6KWPrw11qj2XT9XjF6Q2ccAeom6jyKu61C1CnPmdD6V1MSsR6jUe2BugNNpQz_AKF" data-type="subscription">
+          
+          <!-- Title -->
+          <div style="padding: 16px 0;">
+            <div class="sib-form-block" style="font-size:32px; font-weight:700; font-family:Helvetica, sans-serif; color:#ffffff;">
+              <p>Newsletter</p>
+            </div>
+          </div>
+  
+          <!-- Text -->
+          <div style="padding: 16px 0;">
+            <div class="sib-form-block" style="font-size:16px; font-family:Helvetica, sans-serif; color:#fcfdfe;">
+              <div class="sib-text-form-block">
+                <p>Subscribe to our newsletter and stay updated.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Email Input -->
+          <div style="padding: 16px 0;">
+            <div class="sib-input sib-form-block">
+              <div class="form__entry entry_block">
+                <div class="form__label-row">
+                  <label class="entry__label" style="font-weight: 700; font-family:Helvetica, sans-serif; color:#ffffff;" for="EMAIL" data-required="*">Enter your email</label>
+                  <div class="entry__field">
+                    <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" required />
+                  </div>
+                </div>
+                <label class="entry__error entry__error--primary" style="font-size:16px; color:#661d1d;"></label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Captcha -->
+          <div style="padding: 16px 0;">
+            <div class="sib-captcha sib-form-block">
+              <div class="form__entry entry_block">
+                <div class="form__label-row">
+                  <script>
+                    function handleCaptchaResponse() {
+                      const captchaElement = document.getElementById('sib-captcha');
+                      if (captchaElement) {
+                        captchaElement.dispatchEvent(new Event('captchaChange'));
+                      }
+                    }
+                  </script>
+                  <div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="Cloudflare" data-callback="handleCaptchaResponse" style="direction:ltr"></div>
+                </div>
+                <label class="entry__error entry__error--primary" style="font-size:16px; color:#661d1d;"></label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Subscribe Button -->
+          <div style="padding: 16px 0;">
+            <div class="sib-form-block" style="text-align: left">
+              <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#954fbc; border-radius:20px;" form="sib-form" type="submit">
+                SUBSCRIBE
+              </button>
+            </div>
+          </div>
+  
+          <!-- Hidden Fields -->
+          <input type="text" name="email_address_check" value="" class="input--hidden" />
+          <input type="hidden" name="locale" value="en" />
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+  
+  <!-- START - Footer Scripts -->
+  <script>
+  // @ts-ignore
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  // @ts-ignore
+  window.LOCALE = 'en';
+  // @ts-ignore
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  // @ts-ignore
+  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+  // @ts-ignore
+  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  // @ts-ignore
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+  var AUTOHIDE = Boolean(0);
+  </script>
+  
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <!-- END -->
+  <!-- End Brevo Form -->
+  
