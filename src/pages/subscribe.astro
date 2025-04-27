@@ -69,6 +69,9 @@ import { SITE_TITLE } from '../consts';
                 </label>
               </div>
 
+              <div id="captcha-container" style="margin-bottom: 1.5rem;"></div>
+
+
               <!-- Submit Button -->
               <div>
                 <button type="submit" style="padding: 0.75rem 2rem; background-color: #3E4857; color: white; border: none; border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer;">
@@ -111,8 +114,7 @@ import { SITE_TITLE } from '../consts';
 
       // Faking reCAPTCHA for Brevo using Turnstile
       window.onloadTurnstileCallback = function () {
-        // @ts-ignore
-        turnstile.render('.cf-turnstile', {
+        turnstile.render('#captcha-container', {
           sitekey: '0x4AAAAAABVMBkbBSB8CZusb',
           callback: function (token) {
             window.grecaptcha = {
@@ -123,6 +125,7 @@ import { SITE_TITLE } from '../consts';
           }
         });
       };
+
     </script>
 
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
