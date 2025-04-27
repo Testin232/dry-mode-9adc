@@ -7,7 +7,7 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <footer>
-	&copy; {SITE_TITLE} {today.getFullYear()}. All rights reserved. <a href="/subscribe/">Subscribe! </a> <a href="#" onclick="openForm(); return false;">Subscribe to Newsletter</a>
+	&copy; {SITE_TITLE} {today.getFullYear()}. All rights reserved. <a href="/subscribe/">Subscribe! </a>
 
 	<div class="social-links">
 
@@ -49,17 +49,3 @@ import { SITE_TITLE } from '../consts';
 </style>
 
 
-
-// This is the popup form for subscribing to the newsletter
-<script is:inline>
-	function openForm() {
-	  const popup = document.getElementById('popup-form');
-	  if (popup) popup.style.display = 'block';
-	}
-  
-	function closeForm() {
-	  const popup = document.getElementById('popup-form');
-	  if (popup) popup.style.display = 'none';
-	}
-  </script>
-  
