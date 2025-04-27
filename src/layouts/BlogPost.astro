@@ -13,18 +13,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
     <head>
 
-        <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-        <script>
-            // Version: 2.0
-            window.Brevo = window.Brevo || [];
-            Brevo.push([
-                "init",
-                {
-                client_key: "fxf9sjoyf5kwdt099fp582dr"
-                }
-            ]);
-        </script>
-
         <BaseHead title={title} description={description} />
         <style>
             
