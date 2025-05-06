@@ -106,6 +106,7 @@ img {
 }
 code {
   padding: 2px 5px;
+  background-color: rgb(var(--gray-light));
   border-radius: 2px;
 }
 pre {
@@ -150,4 +151,22 @@ hr {
   clip-path: inset(50%);
   /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
+}
+.logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 0 !important;
+  image-rendering: auto; /* or try 'crisp-edges' or 'pixelated' if it's a pixel-based logo */
+  display: block;
+}
+
+
+
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 0 !important;
+  image-rendering: auto;
+  display: block;
 }
