@@ -7,18 +7,23 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <footer>
-	&copy; {SITE_TITLE} {today.getFullYear()}. All rights reserved. <a href="/subscribe/">Subscribe! </a>
+	&copy; {SITE_TITLE} {today.getFullYear()}. All rights reserved.
 
 	<div class="social-links">
 
 		<a href="https://www.linkedin.com/company/t1-grid" target="_blank">
 			<span class="sr-only">Connect with me on LinkedIn</span>
 			<Icon name="mdi:linkedin" width="32" height="32" />
-		  </a>		
+		 </a>		
 		<a href="mailto:terese@t1grid.com">
 			<span class="sr-only">Send me an email</span>
 			<Icon name="mdi:email" width="32" height="32" />
-		  </a>
+		</a>
+		<a href="/subscribe/">
+			<span class="sr-only">Subscribe</span>
+			<Icon name="mdi:bell-ring" width="32" height="32" />
+		</a>
+	</br>		  
 
 	</div>
 </footer>
@@ -26,6 +31,10 @@ import { SITE_TITLE } from '../consts';
 <CalFloatingButton />
 
 
+
+
+
+<!--
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
@@ -47,5 +56,4 @@ import { SITE_TITLE } from '../consts';
 		color: rgb(var(--gray-dark));
 	}
 </style>
-
-
+-->

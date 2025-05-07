@@ -5,8 +5,8 @@
  */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
+  --accent: #1b3641;
+  --accent-dark: #32386b;
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -28,13 +28,44 @@ body {
   color: rgb(var(--gray-dark));
   font-size: 20px;
   line-height: 1.7;
+
+  
+  height: 100%;
 }
 main {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
+
+  flex: 1;
 }
+
+footer {
+  height: 150px;
+  background-color: #3b3a62;
+  color: rgb(180, 195, 213);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+footer .social-links a {
+  text-decoration: none;
+  color: rgb(180, 195, 213);
+}
+
+
 h1,
 h2,
 h3,
@@ -147,4 +178,11 @@ hr {
   mix-blend-mode: normal !important;
   image-rendering: auto;
   display: block;
+}
+
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
