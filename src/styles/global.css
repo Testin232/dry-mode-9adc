@@ -16,22 +16,8 @@
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
 }
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Light.ttf") format("ttf");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Bold.ttf") format("ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -152,18 +138,6 @@ hr {
   /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }
-.logo-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 0 !important;
-  image-rendering: auto; /* or try 'crisp-edges' or 'pixelated' if it's a pixel-based logo */
-  display: block;
-}
-
-
-
-
-
 
 .logo-img {
   width: 100px;
