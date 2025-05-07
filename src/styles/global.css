@@ -31,6 +31,7 @@ body {
 
   
   height: 100%;
+
 }
 main {
   width: 720px;
@@ -42,9 +43,9 @@ main {
 }
 
 footer {
-  height: 150px;
-  background-color: #3b3a62;
-  color: rgb(180, 195, 213);
+  height: 85px;
+  background-color: #EFF0F2;
+  color: #9896a0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -62,7 +63,7 @@ footer .social-links {
 
 footer .social-links a {
   text-decoration: none;
-  color: rgb(180, 195, 213);
+  color: #9896a0;
 }
 
 
@@ -185,4 +186,24 @@ hr {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+
+.background-wrapper {
+  /* Content area that grows to push footer down */
+  flex: 1;
+  /*background-image: url('/images/background.png');*/
+  background-size: cover;       /* or `contain`, depending on your needs */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+
+
+body.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
