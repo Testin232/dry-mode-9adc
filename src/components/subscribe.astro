@@ -1,0 +1,79 @@
+---
+const popupId = 'subscribe-popup';
+---
+
+<div id={popupId} class="popup hidden">
+  <div class="popup-content">
+    <button class="close-popup" aria-label="Close popup">×</button>
+    <iframe
+      width="540"
+      height="700"
+      src="https://sibforms.com/serve/MUIFAKbryYTGsBP6VEqYyJcKhRt-VH7z3IAUOektifYrAS19KAFOObLabnceSQnTnaZN3V9GCD5MJDl3z7nGL5a9HtxQOCnUtpfPX5MPaL3vbcXS9slwT90wJwWByujnCkCgTR6AU_5ubbtNHrNPEr_zGluTyUhrN392bROOa_e1ItQM_yEntcG70E-P_Y-IbmB0eAfurrZ1TbbJ"
+      frameborder="0"
+      scrolling="auto"
+      allowfullscreen
+      style="max-width: 100%; border: none;"
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('subscribe-popup');
+    const openBtn = document.getElementById('subscribe-btn');
+    const closeBtn = popup?.querySelector('.close-popup');
+
+    if (popup && openBtn) {
+      openBtn.addEventListener('click', () => {
+        popup.classList.remove('hidden');
+      });
+    }
+
+    if (popup && closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        popup.classList.add('hidden');
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popup && !popup.classList.contains('hidden')) {
+        popup.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<style>
+  .popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .close-popup {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+</style>
