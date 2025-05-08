@@ -209,6 +209,6 @@ body.layout {
 }
 
 a {
-  color: #9146FF; /* Your custom purple or any hex/rgb/hsl value */
+  color: var(--link-color, #7174ac);
   text-decoration: none; /* Optional: removes underline */
 }

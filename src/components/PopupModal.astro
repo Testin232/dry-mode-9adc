@@ -1,0 +1,103 @@
+---
+export interface Props {
+  id: string
+  title: string
+}
+const { id, title } = Astro.props;
+---
+
+<div id={`modal-${id}`} class="modal hidden">
+  <div class="modal-inner">
+    <button class="close" aria-label="Close modal">&times;</button>
+    <h2>{title}</h2>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px); /* Increased blur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal.hidden {
+    display: none;
+  }
+
+  .modal-inner {
+    background: #1a1a1a;
+    color: #f0f0f0;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 12px;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: left; /* Left-aligned */
+    animation: scaleIn 0.25s ease;
+    position: relative;
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-inner h2 {
+    font-family: var(--font-heading, 'Verdana', sans-serif);
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: white; /* Explicit white heading */
+  }
+
+  .modal-inner p {
+    margin: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .modal-inner a {
+    color: #9397e1;
+    text-decoration: underline;
+  }
+
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    color: #ccc;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("open-privacy");
+    const modal = document.getElementById("modal-privacy");
+    const closeBtn = modal?.querySelector(".close");
+
+    openBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal?.classList.remove("hidden");
+    });
+
+    closeBtn?.addEventListener("click", () => {
+      modal?.classList.add("hidden");
+    });
+
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title="Privacy Policy" description="How T1 grid handles your data." />
+  </head>
+  <body class="layout">
+    <Header />
+    <main class="page-container">
+      <h1>Privacy Policy</h1>
+      <p>At T1 grid, your privacy is taken seriously. This site uses no tracking or analytics cookies. Functional cookies may be used only where required (e.g. for scheduling via Cal.com or Stripe payments).</p>
+
+      <h2>Cookies</h2>
+      <p>We only use cookies that are necessary to deliver functionality, such as embedded booking or payment systems. These may set cookies when you interact with them.</p>
+
+      <h2>External services</h2>
+      <ul>
+        <li><strong>Cal.com</strong>: Used for booking calls. May set cookies during scheduling.</li>
+        <li><strong>Stripe</strong>: If you make a purchase, Stripe may use functional cookies for secure payment.</li>
+        <li><strong>Brevo</strong>: If you sign up for emails, we only use Brevo for form delivery. Tracking is disabled.</li>
+      </ul>
+
+      <h2>Questions?</h2>
+      <p>Reach out directly to me via <a href="mailto:hello@t1grid.com">hello@t1grid.com</a>.</p>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: Inter, sans-serif;
+  }
+
+  h1, h2 {
+    font-family: Verdana, sans-serif;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+</style>

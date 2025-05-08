@@ -3,28 +3,63 @@ const today = new Date();
 import CalFloatingButton from './CalFloatingButton.astro';
 import { Icon } from 'astro-icon/components';
 import { SITE_TITLE } from '../consts';
-
+import PopupModal from './PopupModal.astro';
 ---
 
 <footer>
-	&copy;{today.getFullYear()} {SITE_TITLE}. All rights reserved.
-
 	<div class="social-links">
-		<a href="https://www.linkedin.com/company/t1-grid" target="_blank">
-			<span class="sr-only">Connect with me on LinkedIn</span>
-			<Icon name="mdi:linkedin" width="32" height="32" />
-		 </a>		
+		<a href="https://www.linkedin.com/company/t1-grid" target="_blank" rel="noopener">
+		  <span class="sr-only">Connect with me on LinkedIn</span>
+		  <Icon name="mdi:linkedin" width="32" height="32" />
+		</a>
 		<a href="mailto:terese@t1grid.com">
-			<span class="sr-only">Send me an email</span>
-			<Icon name="mdi:email" width="32" height="32" />
+		  <span class="sr-only">Send me an email</span>
+		  <Icon name="mdi:email" width="32" height="32" />
 		</a>
 		<a href="/subscribe/">
-			<span class="sr-only">Subscribe</span>
-			<Icon name="mdi:bell-ring" width="32" height="32" />
+		  <span class="sr-only">Subscribe</span>
+		  <Icon name="mdi:bell-ring" width="32" height="32" />
 		</a>
-		</br>		  
+	  </div>
 	</div>
+  <div class="footer-content">
+    <small>
+      &copy;{today.getFullYear()} {SITE_TITLE}. All rights reserved.
+      <button id="open-privacy" class="privacy-link">Privacy Notice</button>
+    </small>
 
+  <PopupModal id="privacy" title="Privacy Notice">
+    <p>This site only uses functional cookies (e.g. Cal.com) after interaction.</p>
+    <p>No analytics. No ads. No tracking.</p>
+    <p>Questions? <a href="mailto:terese@t1grid.com">terese@t1grid.com</a></p>
+  </PopupModal>
 </footer>
 
-<!--<CalFloatingButton /> Inaktiverade flytande knappen temporärt--> 
+<!--<CalFloatingButton /> Temporarily disabled --> 
+
+<style>
+.privacy-link {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: var(--link-color, #9397e1);
+	cursor: pointer;
+	text-decoration: underline;
+  }
+  
+  .privacy-link:hover {
+	color: var(--link-hover, #ffffff);
+  }
+
+  .social-links a {
+	display: inline-block;
+	transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+	.social-links a:hover {
+		transform: scale(1.1);
+		color: var(--link-color, #9397e1);
+	}
+
+</style>
