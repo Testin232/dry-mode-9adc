@@ -44,8 +44,8 @@ main {
 
 footer {
   height: 85px;
-  background-color: #EFF0F2;
-  color: #9896a0;
+  background-color: #3d3e3f;
+  color: #CCCCCC;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ footer .social-links {
 
 footer .social-links a {
   text-decoration: none;
-  color: #9896a0;
+  color: #CCCCCC;
 }
 
 
@@ -206,4 +206,9 @@ body.layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+a {
+  color: #9146FF; /* Your custom purple or any hex/rgb/hsl value */
+  text-decoration: none; /* Optional: removes underline */
 }
