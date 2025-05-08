@@ -1,0 +1,141 @@
+<section class="services-section">
+  <h2>
+      Explore services 
+      <label class="switch">
+          <input type="checkbox" id="toggle-details">
+          <span class="slider"></span>
+        </label>
+  </h2>
+
+  <div class="grid">
+    <div class="tile">
+      <h3>Service A</h3>
+      <p class="details">Details about A</p>
+    </div>
+    <div class="tile">
+      <h3>Service B</h3>
+      <p class="details">Details about B</p>
+    </div>
+    <div class="tile">
+      <h3>Service C</h3>
+      <p class="details">Details about C</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('toggle-details');
+    if (!toggle || toggle.tagName !== 'INPUT') return;
+
+    toggle.addEventListener('change', () => {
+      const show = (toggle instanceof HTMLInputElement) ? toggle.checked : false;
+      const detailsElements = document.querySelectorAll('.tile .details');
+      detailsElements.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          el.style.display = show ? 'block' : 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+.services-section {
+  padding: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  margin-bottom: 1rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+
+
+.grid {
+display: grid;
+gap: 1rem;
+grid-template-columns: 1fr; /* Always start with 1 column */
+max-width: 860px;
+margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+.grid {
+  grid-template-columns: repeat(2, 1fr); /* Up to 2 columns, no more */
+}
+}
+
+
+.tile {
+  padding: 0.75rem 0.75rem; /* vertical 0.75rem, horizontal 0.75rem */
+  background: #6d6b6b;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile h3 {
+  width: 100%;       /* still allow responsiveness */
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.tile .details {
+  display: none;
+  margin-top: 0.25rem; /* reduced from 0.5rem */
+  margin-bottom: 0; 
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.services-section {
+  padding: 0; /* or match the rest of your site */
+  margin: 0;
+}
+
+.services-section h2 {
+  margin: 0 0 1rem 0; /* adjust as needed */
+}
+</style>

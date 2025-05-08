@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Tiles from '../components/tiles.astro';
 ---
 
 
@@ -16,48 +17,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <div class="background-wrapper">
       <Header />
       <main>
-        <h1>Website under construction</h1>
+        <h1>T1 grid is evolving.</h1>
         <p>
-          Please check back later. In the meantime, you can find me on 
-          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank">LinkedIn</a>.
+          
+            I'm working on something new — a space where design meets systems thinking. 
+            Meanwhile, connect with me on <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank">LinkedIn</a> or book a call.
         </p>
+        
+        <Tiles />
+        </br>
+        <h2>Keep updated and in contact with me.</h2>
+
       </main>
     </div>
     <Footer />
   </body>
 </html>
-
-
-<!-- 
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
-
-<!doctype html>
-<html lang="en">
-<div class="background-wrapper">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <Header />
-      <main>
-        <h1>Website under construction</h1> 
-
-        <p>
-          Please check back later. In the meantime, you can find me on 
-          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank">LinkedIn</a>.
-        </p>
-      </main>
-      <Footer />
-    </div>
-  </body>
-</html>
-
-
-
--->
