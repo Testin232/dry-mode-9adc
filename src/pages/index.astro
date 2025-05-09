@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Tiles from "../components/tiles.astro";
 import PopupModal from "../components/PopupModal.astro";
+import CalInit from "../components/CalInit.astro";
 ---
 
 <!doctype html>
@@ -16,6 +17,7 @@ import PopupModal from "../components/PopupModal.astro";
   <body class="layout">
     <div class="background-wrapper">
       <Header />
+
       <main>
         <h1>{SITE_TITLE} is taking shape</h1>
         <p>
@@ -24,76 +26,61 @@ import PopupModal from "../components/PopupModal.astro";
           strategy come together.
         </p>
 
-        <p>
-          Let's connect:
-          <ul>
-            <li>
-              <a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a>
-            </li>
-            <li>
-              <a href="#" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}'>
-                Book a virtual coffee with me</a>
-            </li>
-            <li><button id="open-subscribe" class="button-to-link">Follow my email list</button></li>
+        <p>Let's connect:</p>
+        <ul> 
+          <li>
+            <a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a>
+          </li>
+          
+          <li>
+            <a href="#" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}'>
+              Book a virtual coffee with me
+            </a>
+          </li>
 
-          </ul>
-        </p>
+          <li>
+            <button id="open-subscribe" class="button-to-link">Follow my email list</button>
+          </li>
+          <CalInit />
+        </ul>
 
         <Tiles />
-
       </main>
 
-
-
-      <!-- Subscribe Modal -->
       <PopupModal id="subscribe">
         <iframe
           src="https://sibforms.com/serve/MUIFALacijj-Gm_7_5NdvnOGr3ECgmv2aMTsHl6lF7cGsIwdtxewz1YRowtenm7DKATFzm-OEC3Vi8ULPriXsjl9DNNIY3uAxR4hkKDKk2RagWMLodj1FHTbVlWVRMx9W8QGdodlpNJvk4tnxWLXpfVhpqQf6M-7RZEIJoDb9KKFkPGHzsROhNdcRF6EF728A01BtHw_TsBN3MG2"
-          width="540" height="600" frameborder="0" scrolling="auto" allowfullscreen style="max-width: 100%; border: none;"></iframe>
+          width="540" height="590" frameborder="0" scrolling="auto" allowfullscreen style="max-width: 100%; border: none;"
+        ></iframe>
       </PopupModal>
+
     </div>
 
     <Footer />
+
+   
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const openBtn = document.getElementById("open-subscribe");
+        const modal = document.getElementById("modal-subscribe");
+        const closeBtn = modal?.querySelector(".close");
+
+        openBtn?.addEventListener("click", () => {
+          modal?.classList.remove("hidden");
+        });
+
+        closeBtn?.addEventListener("click", () => {
+          modal?.classList.add("hidden");
+        });
+
+        modal?.addEventListener("click", (e) => {
+          if (e.target === modal) modal.classList.add("hidden");
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") modal?.classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
-
-
-
-
-
-
-<!-- Cal element-click embed code begins, tidigare direct efter main -->
-<script type="text/javascript">
-  (function (C, A, L) {let p = function (a, ar) {a.q.push(ar);}; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) {cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true;} if (ar[0] === L) {const api = function () {p(api, arguments);};const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") {cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar);}; })(window, "https://app.cal.com/embed/embed.js", "init"); Cal("init", "intro", { origin: "https://cal.com" }); Cal.ns.intro("ui", {cssVarsPerTheme: {light: { "cal-brand": "#292929" }, dark: { "cal-brand": "#fafafa" },},hideEventTypeDetails: false,layout: "month_view",});
-</script>
-<!-- Cal element-click embed code ends -->
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const openBtn = document.getElementById("open-subscribe");
-    const modal = document.getElementById("modal-subscribe");
-    const closeBtn = modal?.querySelector(".close");
-
-    openBtn?.addEventListener("click", () => {
-      modal?.classList.remove("hidden");
-    });
-
-    closeBtn?.addEventListener("click", () => {
-      modal?.classList.add("hidden");
-    });
-
-    // Close on background click
-    modal?.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.add("hidden");
-      }
-    });
-
-    // Close on ESC key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        modal?.classList.add("hidden");
-      }
-    });
-  });
-</script>
