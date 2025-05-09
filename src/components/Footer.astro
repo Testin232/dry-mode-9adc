@@ -25,7 +25,7 @@ import PopupModal from './PopupModal.astro';
   <div class="footer-content">
     <small>
       &copy;{today.getFullYear()} {SITE_TITLE}. All rights reserved.
-      <button id="open-privacy" class="privacy-link">Privacy Notice</button>
+      <button id="open-privacy" class="button-to-link">Privacy Notice</button>
     </small>
 
   <PopupModal id="privacy" title="Privacy Notice">
@@ -35,23 +35,10 @@ import PopupModal from './PopupModal.astro';
   </PopupModal>
 </footer>
 
+
 <!--<CalFloatingButton /> Temporarily disabled --> 
 
 <style>
-.privacy-link {
-	background: none;
-	border: none;
-	padding: 0;
-	font: inherit;
-	color: var(--link-color, #9397e1);
-	cursor: pointer;
-	text-decoration: underline;
-  }
-  
-  .privacy-link:hover {
-	color: var(--link-hover, #ffffff);
-  }
-
   .social-links a {
 	display: inline-block;
 	transition: transform 0.2s ease, filter 0.2s ease;
@@ -60,6 +47,5 @@ import PopupModal from './PopupModal.astro';
 	.social-links a:hover {
 		transform: scale(1.1);
 		color: var(--link-color, #9397e1);
-	}
-
+  }
 </style>
