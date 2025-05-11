@@ -1,12 +1,17 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+Base styles adapted from Bear Blog's default CSS:
+https://github.com/HermanMartinus/bearblog
+License: MIT
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;800&display=swap');
 
 :root {
+  --font-extrabold: 800;
   --T1-links: #7174ac;
-  --T1-links-hoverLight:#CCCCCC;
+  --T1-white: #CCCCCC;
+
+  --heading-margin-top: 2.5rem;
 
   --accent: #1b3641;
   --accent-dark: #32386b;
@@ -16,11 +21,17 @@
   --gray-dark: 34, 41, 57;
   --gray-gradient: rgba(var(--gray-light), 40%), #fff;
   --box-shadow:
-    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+    0 2px 6px rgba(var(--gray), 25%),
+    0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
 }
+
 body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: var(--font-regular);
   margin: 0;
   padding: 0;
   text-align: left;
@@ -29,46 +40,101 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.7;
-
-  
   height: 100%;
-
 }
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
-
   flex: 1;
 }
 
+/* Scoped typography */
+.layout p {
+  margin-bottom: 1em;
+}
 
-h1,h2,h3,h4,h5,h6 {
-  margin: 0 0 0.5rem 0;
+.layout .prose p {
+  margin-bottom: 2em;
+}
+
+.layout ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.layout ul ul {
+  list-style-type: circle;
+}
+
+.layout li {
+  margin-bottom: 0.25rem;
+}
+
+.layout strong,
+.layout b {
+  font-weight: var(--font-medium);
+}
+
+/* Headings */
+.layout h1,
+.layout h2,
+.layout h3 {
+  margin-top: var(--heading-margin-top);
+  margin-bottom: 0.25rem;
   color: rgb(var(--black));
   line-height: 1.2;
-}
-h1 {font-size: 2.6em;}
-h2 {font-size: 1.8em;}
-h3 {font-size: 1.953em;}
-h4 {font-size: 1.563em;}
-h5 {font-size: 1.25em;}
-strong, b {font-weight: 700;}
-
-p {margin-bottom: 1em;}
-
-.prose p {margin-bottom: 2em;}
-
-textarea {
-  width: 100%;
-  font-size: 16px;
+  font-weight: var(--font-extrabold);
 }
 
+.layout h1 {
+  font-size: 2.5em;
+  margin-top: 0rem;
+}
+
+.layout h2 {
+  font-size: 1.5em;
+}
+
+.layout h3 {
+  font-size: 1.125rem;
+}
+
+.layout :is(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: 0.25rem;
+}
+
+main.layout h1,
+main.layout h2,
+main.layout h3 {
+  color: rgb(var(--black));
+}
+
+.modal-inner.layout h1,
+.modal-inner.layout h2,
+.modal-inner.layout h3 {
+  color: white !important;
+}
+
+.flex-row,
+.heading-with-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+textarea,
 input {
-  font-size: 16px;
+  font-size: 1rem;
+  width: 100%;
 }
 
 table {
@@ -97,8 +163,8 @@ pre > code {
 
 blockquote {
   border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
-  margin: 0px;
+  padding-left: 20px;
+  margin: 0;
   font-size: 1.333em;
 }
 
@@ -109,7 +175,7 @@ hr {
 
 @media (max-width: 720px) {
   body {
-    font-size: 18px;
+    font-size: 1rem;
   }
   main {
     padding: 1em;
@@ -124,13 +190,8 @@ hr {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
   clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
   clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }
 
@@ -141,10 +202,8 @@ hr {
 }
 
 .background-wrapper {
-  /* Content area that grows to push footer down */
   flex: 1;
-  /*background-image: url('/images/background.png');*/
-  background-size: cover;       /* or `contain`, depending on your needs */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -155,62 +214,52 @@ body.layout {
   min-height: 100vh;
 }
 
-
-
-/* Links*/
 a {
   color: var(--T1-links);
-  text-decoration: none; /* Optional: removes underline */
-} 
-a:hover {color: var(--accent);}
+  text-decoration: none;
+}
 
 .button-to-link {
-	background: none;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-
-	color: var(--T1-links);
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: var(--font-regular);
+  font-size: inherit;
+  cursor: pointer;
+  color: var(--T1-links);
 }
-.button-to-link:hover {color: var(--accent);}
 
+footer {
+  height: 85px;
+  background-color: #3d3e3f;
+  color: var(--T1-white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+}
 
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5em;
+}
 
+footer .social-links a {
+  text-decoration: none;
+  color: var(--T1-white);
+  display: inline-block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
 
-/* Links*/
-	footer {
-	height: 85px;
-	background-color: #3d3e3f;
-	color: #CCCCCC;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 0 1em;
-	}
+footer .social-links a:hover {
+  transform: scale(1.1);
+  color: var(--link-color, #9397e1);
+}
 
-	footer .social-links {
-	display: flex;
-	justify-content: center;
-	gap: 1em;
-	margin-top: 0.5em;
-	}
-
-	footer .social-links a {
-	text-decoration: none;
-	color: #CCCCCC;
-	display: inline-block;
-	transition: transform 0.2s ease, filter 0.2s ease;
-	}
-
-	footer .social-links a:hover {
-	transform: scale(1.1);
-	color: var(--link-color, #9397e1);
-	}
-
-/*subscribe*/
 .form-iframe {
   width: 100%;
   max-width: 100%;
@@ -219,4 +268,8 @@ a:hover {color: var(--accent);}
   display: block;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
 }

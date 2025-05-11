@@ -1,4 +1,8 @@
-<section class="services-section">
+---
+export const hydrate = true;
+---
+
+<section class="services-section layout">
   <div class="heading-with-toggle">
     <h2>Explore services</h2>
     <label class="switch">
@@ -7,43 +11,32 @@
     </label>
   </div>
 
-  <div class="grid">
-    <div class="tile">
-      <h3>Service A</h3>
-      <p class="details">Details about A</p>
-    </div>
-    <div class="tile">
-      <h3>Service B</h3>
-      <p class="details">Details about B</p>
-    </div>
-    <div class="tile">
-      <h3>Service C</h3>
-      <p class="details">Details about C</p>
-    </div>
+  <div class="grid" id="tile-grid">
+    <slot />
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+<script type="module">
+  setTimeout(() => {
     const toggleEl = document.getElementById('toggle-details');
-    if (!(toggleEl instanceof HTMLInputElement)) return;
-    const toggle = toggleEl;
-    const tiles = document.querySelectorAll('.tile');
+    const tiles = document.querySelectorAll('#tile-grid .tile');
+
+    if (!toggleEl || tiles.length === 0) return;
 
     function isExpanded(tile) {
       const details = tile.querySelector('.details');
-      return details instanceof HTMLElement && details.style.display === 'block';
+      return details && details.style.display === 'block';
     }
 
     function updateSwitchVisualState() {
       const allExpanded = Array.from(tiles).every(isExpanded);
-      toggle.checked = allExpanded;
+      toggleEl.checked = allExpanded;
     }
 
     tiles.forEach(tile => {
       tile.addEventListener('click', () => {
         const details = tile.querySelector('.details');
-        if (!(details instanceof HTMLElement)) return;
+        if (!details) return;
         const isVisible = details.style.display === 'block';
         details.style.display = isVisible ? 'none' : 'block';
         tile.classList.toggle('expanded', !isVisible);
@@ -51,53 +44,50 @@
       });
     });
 
-    toggle.addEventListener('change', () => {
-      const shouldShow = toggle.checked;
+    toggleEl.addEventListener('change', () => {
+      const shouldShow = toggleEl.checked;
       tiles.forEach(tile => {
         const details = tile.querySelector('.details');
-        if (!(details instanceof HTMLElement)) return;
-        const isVisible = details.style.display === 'block';
-        if (isVisible !== shouldShow) {
-          details.style.display = shouldShow ? 'block' : 'none';
-          tile.classList.toggle('expanded', shouldShow);
-        }
+        if (!details) return;
+        details.style.display = shouldShow ? 'block' : 'none';
+        tile.classList.toggle('expanded', shouldShow);
       });
     });
-  });
+  }, 0);
 </script>
 
-
 <style>
-    .services-section {
+  :global(.services-section) {
     padding: 0;
     margin: 0;
   }
 
-  .heading-with-toggle {
+  :global(.heading-with-toggle) {
     display: flex;
-    align-items: center;
+    align-items: center; /* ✅ Switch and text aligned */
     gap: 1rem;
+    margin-top(var(--heading-margin-top) - 1px);
     margin-bottom: 1rem;
   }
 
-  h2 {
+  :global(.heading-with-toggle h2) {
     margin: 0;
   }
 
-  .switch {
+  :global(.switch) {
     position: relative;
     display: inline-block;
     width: 50px;
     height: 28px;
   }
 
-  .switch input {
+  :global(.switch input) {
     opacity: 0;
     width: 0;
     height: 0;
   }
 
-  .slider {
+  :global(.slider) {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -109,7 +99,7 @@
     transition: 0.4s;
   }
 
-  .slider:before {
+  :global(.slider:before) {
     position: absolute;
     content: "";
     height: 20px;
@@ -121,15 +111,15 @@
     border-radius: 50%;
   }
 
-  input:checked + .slider {
+  :global(input:checked + .slider) {
     background-color: var(--T1-links);
   }
 
-  input:checked + .slider:before {
+  :global(input:checked + .slider:before) {
     transform: translateX(22px);
   }
 
-  .grid {
+  :global(.grid) {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
@@ -137,7 +127,7 @@
     margin: 0 auto;
   }
 
-  .tile {
+  :global(.tile) {
     padding: 0.75rem;
     background: #CCCCCC;
     border-radius: 10px;
@@ -148,34 +138,33 @@
     border: 2px solid transparent;
   }
 
-  .tile:not(.expanded):hover {
+  :global(.tile:not(.expanded):hover) {
     background: var(--T1-links);
     color: white;
   }
 
-  .tile.expanded {
+  :global(.tile.expanded) {
     background: white;
     color: #292929;
     border: 2px solid var(--T1-links);
   }
 
-  .tile.expanded h3,
-  .tile.expanded .details {
+  :global(.tile.expanded h3,
+  .tile.expanded .details) {
     color: #292929;
   }
 
-  .tile h3 {
+  :global(.tile h3) {
     font-size: 1.1rem;
     line-height: 1.3;
     margin: 0;
   }
 
-  .tile .details {
+  :global(.tile .details) {
     display: none;
     margin-top: 0.25rem;
     margin-bottom: 0;
     font-size: 0.95rem;
     line-height: 1.4;
   }
-
 </style>

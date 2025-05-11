@@ -15,7 +15,7 @@ const labelledByAttr = title ? { 'aria-labelledby': `modal-${id}-title` } : {};
   aria-modal="true"
   {...labelledByAttr}
 >
-  <div class="modal-inner">
+  <div class="modal-inner layout">
     <button class="close" aria-label="Close modal">&times;</button>
     {title && <h2 id={`modal-${id}-title`}>{title}</h2>}
     <slot />
@@ -31,9 +31,9 @@ const labelledByAttr = title ? { 'aria-labelledby': `modal-${id}-title` } : {};
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
     padding: 1rem;
     transition: opacity 0.3s ease;
+    z-index: 9999;
   }
 
   .modal.hidden {
@@ -43,11 +43,12 @@ const labelledByAttr = title ? { 'aria-labelledby': `modal-${id}-title` } : {};
   .modal-inner {
     background: #1a1a1a;
     color: #f0f0f0;
-    padding: 1rem;
-    max-width: 500px;
-    width: 100%;
+    padding: 1.5rem;
+    max-width: min(650px);
+    width: calc(100% - 2em);
+    max-height: 90vh;
+    overflow-y: auto;
     border-radius: 12px;
-    font-family: var(--font-body, 'Inter', sans-serif);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: left;
     animation: scaleIn 0.25s ease;
@@ -59,22 +60,43 @@ const labelledByAttr = title ? { 'aria-labelledby': `modal-${id}-title` } : {};
     to { transform: scale(1); opacity: 1; }
   }
 
-  .modal-inner h2 {
-    font-family: var(--font-heading, 'Verdana', sans-serif);
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: white;
+  /* ✅ Force white headings inside the modal */
+  .modal-inner.layout :is(h1, h2, h3) {
+    color: white !important;
   }
 
-  .modal-inner p {
-    margin: 1rem 0;
-    font-size: 1rem;
+
+  .modal-inner section {
+    margin-bottom: 2rem;
+  }
+
+  .modal-inner section:last-child {
+    margin-bottom: 0;
+  }
+
+  .modal-inner p,
+  .modal-inner ul {
+    margin: 0 0 1rem 0;
     line-height: 1.6;
+  }
+
+  .modal-inner ul {
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .modal-inner ul ul {
+    list-style-type: circle;
+  }
+
+  .modal-inner li {
+    margin-bottom: 0.5rem;
   }
 
   .modal-inner a {
     color: #9397e1;
     text-decoration: underline;
+    word-break: break-word;
   }
 
   .close {

@@ -5,8 +5,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Tiles from "../components/tiles.astro";
-import PopupModal from "../components/PopupModal.astro";
-import CalInit from "../components/CalInit.astro";
+import InitCal from "../components/InitCal.astro";
+import InitSubscr from "../components/InitSubscr.astro";
 ---
 
 <!doctype html>
@@ -21,12 +21,25 @@ import CalInit from "../components/CalInit.astro";
       <main>
         <h1>{SITE_TITLE} is taking shape</h1>
         <p>
-          I’m Terese Wahlström, the one behind it — exploring what it could
-          become. It’s an evolving space where design, systems thinking, and
-          strategy come together.
+          This site is a work in progress. I am currently working on the content and design.
         </p>
 
-        <p>Let's connect:</p>
+        <Tiles>
+          <div class="tile">
+            <h3>Service A</h3>
+            <p class="details">Details about A</p>
+          </div>
+          <div class="tile">
+            <h3>Service B</h3>
+            <p class="details">Details about B</p>
+          </div>
+          <div class="tile">
+            <h3>Service C</h3>
+            <p class="details">Details about C</p>
+          </div>
+        </Tiles>
+        
+        <h2>Contact, Connect & Follow</h2>
         <ul> 
           <li>
             <a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a>
@@ -41,46 +54,12 @@ import CalInit from "../components/CalInit.astro";
           <li>
             <button id="open-subscribe" class="button-to-link">Follow my email list</button>
           </li>
-          <CalInit />
+          
+          <InitCal />
         </ul>
-
-        <Tiles />
       </main>
-
-      <PopupModal id="subscribe">
-        <iframe
-          src="https://sibforms.com/serve/MUIFALacijj-Gm_7_5NdvnOGr3ECgmv2aMTsHl6lF7cGsIwdtxewz1YRowtenm7DKATFzm-OEC3Vi8ULPriXsjl9DNNIY3uAxR4hkKDKk2RagWMLodj1FHTbVlWVRMx9W8QGdodlpNJvk4tnxWLXpfVhpqQf6M-7RZEIJoDb9KKFkPGHzsROhNdcRF6EF728A01BtHw_TsBN3MG2"
-          width="540" height="590" frameborder="0" scrolling="auto" allowfullscreen style="max-width: 100%; border: none;"
-        ></iframe>
-      </PopupModal>
-
+      <InitSubscr />
     </div>
-
     <Footer />
-
-   
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const openBtn = document.getElementById("open-subscribe");
-        const modal = document.getElementById("modal-subscribe");
-        const closeBtn = modal?.querySelector(".close");
-
-        openBtn?.addEventListener("click", () => {
-          modal?.classList.remove("hidden");
-        });
-
-        closeBtn?.addEventListener("click", () => {
-          modal?.classList.add("hidden");
-        });
-
-        modal?.addEventListener("click", (e) => {
-          if (e.target === modal) modal.classList.add("hidden");
-        });
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") modal?.classList.add("hidden");
-        });
-      });
-    </script>
   </body>
 </html>
