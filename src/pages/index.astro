@@ -7,6 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Tiles from "../components/tiles.astro";
 import InitCal from "../components/InitCal.astro";
 import InitSubscr from "../components/InitSubscr.astro";
+import { Icon } from 'astro-icon/components';
 ---
 
 <!doctype html>
@@ -16,12 +17,14 @@ import InitSubscr from "../components/InitSubscr.astro";
   </head>
   <body class="layout">
     <div class="background-wrapper">
-      <Header />
+      
 
       <main>
-        <h1>{SITE_TITLE} is taking shape</h1>
+        <Header />
+
         <p>
-          This site is a work in progress. I am currently working on the content and design.
+          At T1 grid, bold ideas don’t float — they’re channelled. We combine strategic thinking with elegant systems and tools that move projects forward with confidence. 
+          Whether you’re refining your process or building something new, structure isn’t a constraint — it’s creative leverage.
         </p>
 
         <Tiles>
@@ -40,22 +43,34 @@ import InitSubscr from "../components/InitSubscr.astro";
         </Tiles>
         
         <h2>Contact, Connect & Follow</h2>
-        <ul> 
-          <li>
-            <a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a>
-          </li>
-          
+
+
+        <!-- 👇 Move social icons here -->
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/t1-grid" target="_blank" rel="noopener">
+            <span class="sr-only">Connect with me on LinkedIn</span>
+            <Icon name="mdi:linkedin" width="32" height="32" />
+          </a>
+          <a href="mailto:terese@t1grid.com">
+            <span class="sr-only">Send me an email</span>
+            <Icon name="mdi:email" width="32" height="32" />
+          </a>
+          <a href="/subscribe/">
+            <span class="sr-only">Subscribe</span>
+            <Icon name="mdi:bell-ring" width="32" height="32" />
+          </a>
+        </div>
+
+        <ul>
+          <li><a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a></li>
           <li>
             <a href="#" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}'>
               Book a virtual coffee with me
             </a>
           </li>
-
-          <li>
-            <button id="open-subscribe" class="button-to-link">Follow my email list</button>
-          </li>
-          
-          <InitCal />
+          <li><button id="open-subscribe" class="button-to-link">Follow my email list</button></li>
+        </ul>
+        <InitCal />
         </ul>
       </main>
       <InitSubscr />
@@ -63,3 +78,22 @@ import InitSubscr from "../components/InitSubscr.astro";
     <Footer />
   </body>
 </html>
+
+
+<style>
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 0.4rem;
+    color: #44350d;
+    transition: all 0.3s ease;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.1);
+    color: #665013;
+  }
+</style>

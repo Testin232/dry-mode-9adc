@@ -74,17 +74,19 @@ export const hydrate = true;
     margin: 0;
   }
 
-  :global(.switch) {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-  }
-
   :global(.switch input) {
     opacity: 0;
     width: 0;
     height: 0;
+  }
+
+  :global(.switch) {
+    width: 42px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    position: relative;
+    top: -1px;  
   }
 
   :global(.slider) {
@@ -94,29 +96,34 @@ export const hydrate = true;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
-    border-radius: 34px;
+    background: rgba(7, 5, 21, 0.47);
+    border: 1px solid rgba(255, 179, 133, 0.2);
+    border-radius: 999px;
     transition: 0.4s;
+    box-sizing: border-box;
   }
 
   :global(.slider:before) {
-    position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 4px;     /* <-- 👈 this is the fix */
     left: 4px;
-    bottom: 4px;
-    background-color: white;
+    background-color: #ffb385;
     transition: 0.4s;
     border-radius: 50%;
   }
 
   :global(input:checked + .slider) {
-    background-color: var(--T1-links);
+    background: rgba(7, 5, 21, 0.47);
+    border-color: #ffb385;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   :global(input:checked + .slider:before) {
-    transform: translateX(22px);
+    transform: translateX(19px); /* adjust visually if needed */
+    background-color: #ffb385;
   }
 
   :global(.grid) {
@@ -128,43 +135,52 @@ export const hydrate = true;
   }
 
   :global(.tile) {
-    padding: 0.75rem;
-    background: #CCCCCC;
-    border-radius: 10px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease, border 0.2s ease;
+    background: rgba(7, 5, 21, 0.47);
+    border: 1px solid rgba(255, 179, 133, 0.2);
+    border-radius: 3px;
+    padding: 0.5rem;
+    color: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
     cursor: pointer;
-    color: black;
-    border: 2px solid transparent;
   }
 
   :global(.tile:not(.expanded):hover) {
-    background: var(--T1-links);
+    background: rgba(255, 179, 133, 0.18);
+    border-color: #fb985a;
+    color: #fff;
+  }
+
+
+
+  :global(.tile.expanded) {
+    background: rgba(7, 5, 21, 0.47);
+    border: 1px solid rgba(255, 179, 133, 0.2);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+
+  :global(.tile.expanded .details) {
     color: white;
   }
 
-  :global(.tile.expanded) {
-    background: white;
-    color: #292929;
-    border: 2px solid var(--T1-links);
-  }
-
-  :global(.tile.expanded h3,
-  .tile.expanded .details) {
-    color: #292929;
-  }
-
   :global(.tile h3) {
-    font-size: 1.1rem;
-    line-height: 1.3;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    color: #ffb385;
+    letter-spacing: 0.5px;
     margin: 0;
   }
 
   :global(.tile .details) {
     display: none;
-    margin-top: 0.25rem;
-    margin-bottom: 0;
+    margin-top: 0.75rem;
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
+    color: #d8d8d8;
   }
+
 </style>
