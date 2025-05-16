@@ -59,6 +59,18 @@ import { Icon } from 'astro-icon/components';
             <span class="sr-only">Subscribe</span>
             <Icon name="mdi:bell-ring" width="32" height="32" />
           </a>
+
+          <!-- Phone -->
+          <a href="tel:+46709800525" aria-label="Call me">
+            <Icon name="mdi:phone" width="32" height="32" />
+          </a>
+
+          <!-- Book Me -->
+          <a href="https://cal.com/teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}' target="_blank" rel="noopener" aria-label="Book a meeting">
+            <Icon name="mdi:calendar-clock" width="32" height="32" />
+          </a>
+
+
         </div>
 
         <ul>
@@ -78,22 +90,3 @@ import { Icon } from 'astro-icon/components';
     <Footer />
   </body>
 </html>
-
-
-<style>
-  .social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    margin: 0 0.4rem;
-    color: #44350d;
-    transition: all 0.3s ease;
-  }
-
-  .social-links a:hover {
-    transform: scale(1.1);
-    color: #665013;
-  }
-</style>

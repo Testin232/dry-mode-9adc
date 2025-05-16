@@ -56,6 +56,9 @@ export const hydrate = true;
   }, 0);
 </script>
 
+
+
+
 <style>
   :global(.services-section) {
     padding: 0;
@@ -74,19 +77,75 @@ export const hydrate = true;
     margin: 0;
   }
 
+  :global(.grid) {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  :global(.tile h3) {
+    margin: 0;
+  }
+  
+
+
+  :global(.tile .details) {
+    display: none;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+
+  /*-----------------------*/
+  /*-----------------------*/
+  /*Tiles styling below----*/
+
+  :global(.tile) {
+    background: white;
+    border: 1px solid #bebebe;
+    border-radius: 12px;
+    padding: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #111; /* Optional: Ensures dark text on white */
+  }
+
+  :global(.tile:not(.expanded):hover) {
+    background: var(--T1-white);
+    border-color: var(--t1-hover);
+    border-width: 2px;
+  }
+
+
+  :global(.tile.expanded) {
+    background: var(--T1-white);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  :global(.tile.expanded .details) {
+    color: #111;
+  }
+
+  /*-----------------------*/
+  /*-----------------------*/
+  /*Switch & slider styling below*/
+  :global(.switch) {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    vertical-align: middle;
+  }
+
   :global(.switch input) {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-
-  :global(.switch) {
-    width: 42px;
-    height: 24px;
-    position: relative;
-    display: inline-block;
-    position: relative;
-    top: -1px;  
   }
 
   :global(.slider) {
@@ -96,91 +155,33 @@ export const hydrate = true;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(7, 5, 21, 0.47);
-    border: 1px solid rgba(255, 179, 133, 0.2);
+    background-color: #dbe9f5; /* soft blue-gray */
+    border: 1px solid #b4c9dd;
     border-radius: 999px;
-    transition: 0.4s;
-    box-sizing: border-box;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
   :global(.slider:before) {
     content: "";
     position: absolute;
-    width: 12px;
-    height: 12px;
-    top: 4px;     /* <-- 👈 this is the fix */
+    height: 16px;
+    width: 16px;
     left: 4px;
-    background-color: #ffb385;
-    transition: 0.4s;
+    top: 3.5px;
+    background-color: #7fb2f0; /* modern blue */
     border-radius: 50%;
+    transition: transform 0.3s ease;
   }
 
   :global(input:checked + .slider) {
-    background: rgba(7, 5, 21, 0.47);
-    border-color: #ffb385;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #e0f2ff; /* brighter when active */
+    border-color: #7fb2f0;
   }
 
   :global(input:checked + .slider:before) {
-    transform: translateX(19px); /* adjust visually if needed */
-    background-color: #ffb385;
-  }
-
-  :global(.grid) {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  :global(.tile) {
-    background: rgba(7, 5, 21, 0.47);
-    border: 1px solid rgba(255, 179, 133, 0.2);
-    border-radius: 3px;
-    padding: 0.5rem;
-    color: #f0f0f0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  :global(.tile:not(.expanded):hover) {
-    background: rgba(255, 179, 133, 0.18);
-    border-color: #fb985a;
-    color: #fff;
-  }
-
-
-
-  :global(.tile.expanded) {
-    background: rgba(7, 5, 21, 0.47);
-    border: 1px solid rgba(255, 179, 133, 0.2);
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-
-
-  :global(.tile.expanded .details) {
-    color: white;
-  }
-
-  :global(.tile h3) {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1.125rem;
-    text-transform: uppercase;
-    color: #ffb385;
-    letter-spacing: 0.5px;
-    margin: 0;
-  }
-
-  :global(.tile .details) {
-    display: none;
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #d8d8d8;
+    transform: translateX(20px);
+    background-color: #4b6cb7;
   }
 
 </style>
