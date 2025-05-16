@@ -27,27 +27,10 @@ import { Icon } from 'astro-icon/components';
           Whether you’re refining your process or building something new, structure isn’t a constraint — it’s creative leverage.
         </p>
 
-        <Tiles>
-          <div class="tile">
-            <h3>Service A</h3>
-            <p class="details">Details about A</p>
-          </div>
-          <div class="tile">
-            <h3>Service B</h3>
-            <p class="details">Details about B</p>
-          </div>
-          <div class="tile">
-            <h3>Service C</h3>
-            <p class="details">Details about C</p>
-          </div>
-        </Tiles>
-        
-        <h2>Contact, Connect & Follow</h2>
-
-
+                Contact, Connect & Follow
         <!-- 👇 Move social icons here -->
         <div class="social-links">
-          <a href="https://www.linkedin.com/company/t1-grid" target="_blank" rel="noopener">
+          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank" rel="noopener">
             <span class="sr-only">Connect with me on LinkedIn</span>
             <Icon name="mdi:linkedin" width="32" height="32" />
           </a>
@@ -55,7 +38,7 @@ import { Icon } from 'astro-icon/components';
             <span class="sr-only">Send me an email</span>
             <Icon name="mdi:email" width="32" height="32" />
           </a>
-          <a href="/subscribe/">
+          <a href="#" id="open-subscribe">
             <span class="sr-only">Subscribe</span>
             <Icon name="mdi:bell-ring" width="32" height="32" />
           </a>
@@ -74,14 +57,29 @@ import { Icon } from 'astro-icon/components';
         </div>
 
         <ul>
-          <li><a href="https://www.linkedin.com/in/teresewahlstrom">LinkedIn</a></li>
           <li>
             <a href="#" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}'>
               Book a virtual coffee with me
             </a>
           </li>
-          <li><button id="open-subscribe" class="button-to-link">Follow my email list</button></li>
         </ul>
+
+
+        <Tiles>
+          <div class="tile">
+            <h3>Service A</h3>
+            <p class="details">Details about A</p>
+          </div>
+          <div class="tile">
+            <h3>Service B</h3>
+            <p class="details">Details about B</p>
+          </div>
+          <div class="tile">
+            <h3>Service C</h3>
+            <p class="details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </Tiles>
+        
         <InitCal />
         </ul>
       </main>

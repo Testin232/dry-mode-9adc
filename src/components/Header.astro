@@ -1,31 +1,29 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import { Icon } from 'astro-icon/components';
 ---
 
-
 <header>
 	<nav>
-		<h2><a href="/"><img src="/images/logo.png" alt={SITE_TITLE} class="logo-img" style="width:100px;height:90px;"></a></h2>
-		
+		<a href="/"><img src="/images/logo.png" alt={SITE_TITLE} class="logo-img"></a>
 	</nav>
 </header>
+
 
 <style>
 	header {
 		margin: 0;
-		padding: 0;
+		padding: 9px 0;
 	}
 	
 	.logo-img {
-	width: 100px;
-	height: 100px;
-	border-radius: 0 !important;
-	filter: none !important;
-	mix-blend-mode: normal !important;
-	image-rendering: auto;
-	display: block;
+		width: 100px;
+		height: 90px;
+		border-radius: 0 !important;
+		filter: none !important;
+		mix-blend-mode: normal !important;
+		image-rendering: auto;
+		display: block;
+		position: relative;
 	}
-
 </style>
