@@ -128,11 +128,21 @@ const labelledByAttr = title ? { 'aria-labelledby': `modal-${id}-title` } : {};
     margin-bottom: 0.5rem;
   }
 
-  .modal-inner a {
+  :global(.modal-inner a) {
+    color: #78a9ff;
+    text-decoration: underline;
+    word-break: break-word;
+  }
+
+  :global(.modal-inner a:hover) {
     color: var(--T1-white);
     text-decoration: underline;
     word-break: break-word;
   }
+
+  :global(.modal-inner h3) {
+    margin-top: 1.5em;
+  } 
 
   .close {
     position: absolute;

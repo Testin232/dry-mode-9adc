@@ -22,37 +22,51 @@ import { Icon } from 'astro-icon/components';
       <main>
         <Header />
 
-        <p>
-          At T1 grid, bold ideas don’t float — they’re channelled. We combine strategic thinking with elegant systems and tools that move projects forward with confidence. 
-          Whether you’re refining your process or building something new, structure isn’t a constraint — it’s creative leverage.
-        </p>
+        <Tiles>
+          <div class="tile">
+            <h3>Identify -> Clarify -> Cut waste -> Coach for Change</h3>
+            <p class="details">Details about A</p>
+          </div>
+          <div class="tile">
+            <h3>R&D</h3>
+            <p class="details">Details about B</p>
+          </div>
+          <div class="tile">
+            <h3>Customer Experience</h3>
+            <p class="details">Details about C</p>
+          </div>
+        </Tiles>
+        
 
-                Contact, Connect & Follow
+        <h2>Contact, Connect & Follow</h2>
+        <p>I'm always open to new opportunities and connections. Feel free to reach out!</p>
+
         <!-- 👇 Move social icons here -->
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank" rel="noopener">
-            <span class="sr-only">Connect with me on LinkedIn</span>
-            <Icon name="mdi:linkedin" width="32" height="32" />
-          </a>
           <a href="mailto:terese@t1grid.com">
             <span class="sr-only">Send me an email</span>
-            <Icon name="mdi:email" width="32" height="32" />
-          </a>
-          <a href="#" id="open-subscribe">
-            <span class="sr-only">Subscribe</span>
-            <Icon name="mdi:bell-ring" width="32" height="32" />
+            <Icon name="mdi:email" width="28" height="28" />
           </a>
 
-          <!-- Phone -->
           <a href="tel:+46709800525" aria-label="Call me">
-            <Icon name="mdi:phone" width="32" height="32" />
+            <Icon name="mdi:phone" width="28" height="28" />
           </a>
 
           <!-- Book Me -->
           <a href="https://cal.com/teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}' target="_blank" rel="noopener" aria-label="Book a meeting">
-            <Icon name="mdi:calendar-clock" width="32" height="32" />
+            <Icon name="mdi:calendar-clock" width="28" height="28" />
           </a>
 
+        <br/><br/>
+
+          <a href="#" id="open-subscribe">
+            <span class="sr-only">Subscribe</span>
+            <Icon name="mdi:bell-ring" width="28" height="28" />
+          </a>
+          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank" rel="noopener">
+            <span class="sr-only">Connect with me on LinkedIn</span>
+            <Icon name="mdi:linkedin" width="28" height="28" />
+          </a>
 
         </div>
 
@@ -65,21 +79,9 @@ import { Icon } from 'astro-icon/components';
         </ul>
 
 
-        <Tiles>
-          <div class="tile">
-            <h3>Service A</h3>
-            <p class="details">Details about A</p>
-          </div>
-          <div class="tile">
-            <h3>Service B</h3>
-            <p class="details">Details about B</p>
-          </div>
-          <div class="tile">
-            <h3>Service C</h3>
-            <p class="details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </Tiles>
-        
+
+
+
         <InitCal />
         </ul>
       </main>
