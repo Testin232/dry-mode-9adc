@@ -127,9 +127,10 @@ body.layout {
   background-attachment: scroll;
 }
 
+
 main {
   width: 700px;
-  max-width: calc(100% - 2em);
+  max-width: calc(100% - 0.05em);
   margin-left: auto;
   margin-right: auto;
   padding: 0 1em;
@@ -331,16 +332,3 @@ footer {
   outline-offset: 2px;
 }
 
-@media (max-width: 640px) {
-  /* If you’re using .layout on the body… */
-  :global(body.layout) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  /* If you’ve also got a wrapper inside… */
-  :global(.background-wrapper) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-}
