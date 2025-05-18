@@ -32,6 +32,14 @@
   font-weight: 600;
 }
 
+@font-face {
+  font-family: 'ComingSoon';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/ComingSoon-Regular.woff2') format('woff2'),
+}
+
+
 /* ─── VARIABLES ─────────────────────────── */
 :root {
   --font-extrabold: 800;
@@ -40,39 +48,41 @@
   --font-medium: 500;
   --heading-margin-top: 2.5rem;
 
-  --T1-accent: #202754;
+  --T1-accent: #2E3A86;
   --T1-white: #ffffff;
 
-  --T1-links: #2e3a86;
-  --T1-hover: #B7E2FE;
+  --T1-links: var(--T1-accent);
+  --T1-hover: #843f02;
 
-  --T1-H1: var(--T1-accent);
-  --T1-H2: var(--T1-accent);
-  --T1-H3: #2b2f44;
-  --T1-body: #2b2f44;
+  --T1-H1: #1a1a1a;
+  --T1-H2: #252525;
+  --T1-H3: #252525;
+  --T1-body: #252525;
 
   --T1-social: var(--T1-accent);
   --T1-social-hover: var(--T1-hover);
 
 
-  --T1-footer-bgd: #f7f8f6e3;
+  --T1-footer-bgd: var(--T1-grid-bgd);
   --T1-footer-txt: #555764;
-  --T1-footer-link-hover: var(--T1-footer-txt);
+  --T1-footer-link-hover: var(--T1-hover);
 
-  --T1-grid-bgd: #f7f8f6e3;
-  --T1-grid-line: #e1e4f2;
+  --T1-grid-bgd: #F8F9F7;
+  --T1-grid-line: #E1E4F2;
 
-  --T1-switch-off-bgd: var(--T1-grid-bgd);
+  --T1-switch-off-bgd: var(--T1-white);
   --T1-switch-off-border: var(--T1-accent);
-  --T1-switch-off-circle: #15307a;
-  --T1-switch-on-bgd: #B7E2FE;
+  --T1-switch-off-circle: var(--T1-accent);
+  --T1-switch-on-bgd: var(--T1-accent);
   --T1-switch-on-border: var(--T1-accent);
-  --T1-switch-on-circle: var(--T1-accent);
-  --T1-tile-hover-border: var(--T1-accent);
+  --T1-switch-on-circle: var(--T1-white);
+  --T1-tile-hover-border: var(--T1-hover);
 
   --gray-light: 235, 239, 245;
   --gray: 84, 100, 123;
   --gray-gradient: rgba(var(--gray-light), 60%), var(--T1-white);
+
+
 }
 
 /* ─── GLOBAL LAYOUT ─────────────────────── */
@@ -140,13 +150,29 @@ body {
   margin-top: 0;
   margin-bottom: 0.25em;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
+.layout h1 {
+  font-family: 'ComingSoon', sans-serif;
+  color: var(--T1-H1)
+}
 
-.layout h2{
+.layout h2 {
+  font-family: 'ComingSoon', sans-serif;
+
+  color: var(--T1-H2);
+  font-weight: var(--font-extrabold);    /* stronger than medium */
+  font-size: 2rem;                    /* bump from 1.5rem */
+
   margin-top: 1.5em;
 }
+
+
+.layout h3 {
+  color: var(--T1-H3)
+}
+
 
 .layout p {
   margin-top: 0;
@@ -305,19 +331,3 @@ footer {
   outline-offset: 2px;
 }
 
-/* ─── RESPONSIVE ────────────────────────── */
-@media (max-width: 700px) {
-  main {
-    padding: 0.5em;
-  }
-
-  .layout h1 {
-    font-size: 2.4rem;
-  }
-
-  .layout h2 {
-    font-size: 1.25rem;
-  }
-
-
-}

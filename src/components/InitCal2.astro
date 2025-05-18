@@ -1,0 +1,21 @@
+---
+---
+<!--
+  InitCal2.astro
+  1) Statically pull in Cal’s embed.js
+  2) Immediately call your init() and ui() methods
+  We use `is:inline` so Astro writes these tags *exactly* as shown.
+-->
+<script is:inline src="https://app.cal.com/embed/embed.js"></script>
+<script is:inline>
+  // 1) Point at your Cal.com account
+  Cal("init", { origin: "https://cal.com" });
+  // 2) Initialize & configure your "intro" namespace
+  Cal("init", "intro");
+  Cal.ns.intro("ui", {
+    layout: "month_view",
+    hideEventTypeDetails: false
+  });
+  // 3) Debug
+  console.log("[InitCal2] Cal loaded?", window.Cal, window.Cal.ns?.intro);
+</script>

@@ -1,15 +1,13 @@
 ---
-// Import components and constants
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseHead    from "../components/BaseHead.astro";
+import Header      from "../components/Header.astro";
+import Footer      from "../components/Footer.astro";
+import Tiles       from "../components/tiles.astro";
+import InitCal     from "../components/InitCal.astro";
+import InitSubscr  from "../components/InitSubscr.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import Tiles from "../components/tiles.astro";
-import InitCal from "../components/InitCal.astro";
-import InitSubscr from "../components/InitSubscr.astro";
-import { Icon } from 'astro-icon/components';
+import { Icon }    from "astro-icon/components";
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,14 +15,12 @@ import { Icon } from 'astro-icon/components';
   </head>
   <body class="layout">
     <div class="background-wrapper">
-      
-
       <main>
         <Header />
 
         <Tiles>
           <div class="tile">
-            <h3>Identify -> Clarify -> Cut waste -> Coach for Change</h3>
+            <h3>Identify → Clarify → Cut waste → Coach for Change</h3>
             <p class="details">Details about A</p>
           </div>
           <div class="tile">
@@ -36,43 +32,50 @@ import { Icon } from 'astro-icon/components';
             <p class="details">Details about C</p>
           </div>
         </Tiles>
-        
 
-        <h2>Contact, Connect & Follow</h2>
-        <p>I'm always open to new opportunities and connections. Feel free to reach out!</p>
-
-        <!-- 👇 Move social icons here -->
+        <h2>Contact · Follow · Meet</h2>
         <div class="social-links">
-          <a href="mailto:terese@t1grid.com">
-            <span class="sr-only">Send me an email</span>
-            <Icon name="mdi:email" width="28" height="28" />
+          <a href="mailto:terese@t1grid.com" aria-label="Send me an email">
+            <Icon name="mdi:email" width="35" height="35" />
           </a>
-
           <a href="tel:+46709800525" aria-label="Call me">
-            <Icon name="mdi:phone" width="28" height="28" />
+            <Icon name="mdi:phone" width="35" height="35" />
+          </a>
+          <a href="#" id="open-subscribe" aria-label="Subscribe">
+            <Icon name="mdi:bell-ring" width="35" height="35" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/teresewahlstrom"
+            target="_blank"
+            rel="noopener"
+            aria-label="Connect on LinkedIn"
+          >
+            <Icon name="mdi:linkedin" width="35" height="35" />
           </a>
 
-          <!-- Book Me -->
-          <a href="https://cal.com/teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}' target="_blank" rel="noopener" aria-label="Book a meeting">
-            <Icon name="mdi:calendar-clock" width="28" height="28" />
+          <!-- 📅 Calendar icon to open Cal.com embed -->
+          <a
+            href="#"
+            data-cal-link="teresew/intro"
+            data-cal-namespace="intro"
+            data-cal-config='{"layout":"month_view"}'
+            aria-label="Book a meeting"
+            class="cal-link"
+            role="button"
+          >
+            <Icon name="mdi:calendar-clock" width="35" height="35" />
           </a>
-
-        <br/><br/>
-
-          <a href="#" id="open-subscribe">
-            <span class="sr-only">Subscribe</span>
-            <Icon name="mdi:bell-ring" width="28" height="28" />
-          </a>
-          <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank" rel="noopener">
-            <span class="sr-only">Connect with me on LinkedIn</span>
-            <Icon name="mdi:linkedin" width="28" height="28" />
-          </a>
-
         </div>
 
+        <!-- Optional text link -->
         <ul>
           <li>
-            <a href="#" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}'>
+            <a
+              href="#"
+              data-cal-link="teresew/intro"
+              data-cal-namespace="intro"
+              data-cal-config='{"layout":"month_view"}'
+            >
               Book a virtual coffee with me
             </a>
           </li>
@@ -82,11 +85,120 @@ import { Icon } from 'astro-icon/components';
 
 
 
-        <InitCal />
-        </ul>
+
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+        <table class="socials-table">
+  <thead>
+    <tr>
+      <th><h2>Follow</h2></th>
+      <th><h2>Contact</h2></th>
+      <th><h2>Meet</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="#" class="social-entry" aria-label="Subscribe to newsletter">
+          <Icon name="mdi:bell-ring" width="24" height="24" />
+          <span>Newsletter</span>
+        </a>
+      </td>
+      <td>
+        <a href="mailto:terese@t1grid.com" class="social-entry" aria-label="Email me">
+          <Icon name="mdi:email" width="24" height="24" />
+          <span>terese@t1grid.com</span>
+        </a>
+      </td>
+      <td>
+        <a
+          href="#"
+          class="social-entry"
+          data-cal-link="teresew/intro"
+          data-cal-namespace="intro"
+          data-cal-config='{"layout":"month_view"}'
+          aria-label="Book meeting"
+        >
+          <Icon name="mdi:calendar-clock" width="24" height="24" />
+          <span>Book meeting</span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a
+          href="https://www.linkedin.com/in/teresewahlstrom"
+          target="_blank"
+          rel="noopener"
+          class="social-entry"
+          aria-label="Connect on LinkedIn"
+        >
+          <Icon name="mdi:linkedin" width="24" height="24" />
+          <span>LinkedIn</span>
+        </a>
+      </td>
+      <td>
+        <a href="tel:+46709800525" class="social-entry" aria-label="Call me">
+          <Icon name="mdi:phone" width="24" height="24" />
+          <span>+46 709 800 525</span>
+        </a>
+      </td>
+      <td><!-- empty --></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <InitSubscr />
       </main>
-      <InitSubscr />
     </div>
+
+    <!-- 🍰 Crucially, this comes AFTER your links -->
+    <InitCal />
+
     <Footer />
   </body>
 </html>
+
+
+<style>
+  .cal-link {
+    display: inline-block;
+    pointer-events: auto;
+  }
+  .cal-link svg {
+    pointer-events: none;
+  }
+</style>
+
+

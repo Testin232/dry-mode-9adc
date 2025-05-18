@@ -4,7 +4,7 @@ export const hydrate = true;
 
 <section class="services-section layout">
   <div class="heading-with-toggle">
-    <h2>Explore services</h2>
+    <h2>Explore Services</h2>
     <label class="switch">
       <input type="checkbox" id="toggle-details" />
       <span class="slider"></span>
@@ -85,10 +85,6 @@ export const hydrate = true;
     margin: 0 auto;
   }
 
-/*  :global(.tile h3) {
-    margin: 0;
-  }*/
-
   :global(.tile .details) {
     display: none;
     font-size: 0.95rem;
@@ -129,12 +125,6 @@ export const hydrate = true;
     padding: 0;
     line-height: 1.3;
   }
-
-/*  :global(.tile.expanded .details p) {
-    margin: 0;
-    padding: 0;
-  }*/
-
 
   /*-----------------------*/
   /*-----------------------*/
@@ -188,5 +178,55 @@ export const hydrate = true;
     transform: translateX(20px);
     background-color: var(--T1-switch-on-circle);
   }
+
+
+
+
+
+
+
+/* Switch track */
+:global(.slider) {
+  /* …existing props… */
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.05), /* your existing inner shadow */
+    0 2px 4px rgba(0, 0, 0, 0.1);          /* new outer drop-shadow */
+}
+
+/* Switch thumb (the circle) */
+:global(.slider:before) {
+  /* …existing props… */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* subtle shadow under the knob */
+}
+
+/* Heavier “lift” on switch hover */
+:global(.switch:hover .slider) {
+  /* keep the inset, but beef up the outer shadow to match tiles */
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.05),
+    0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Optionally, also give the thumb a stronger shadow on hover */
+:global(.switch:hover .slider:before) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+:global(.tile:not(.expanded):hover) {
+  background: var(--T1-white);
+  border-color: var(--T1-tile-hover-border);
+  /* heavier drop-shadow on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+:global(.tile.expanded:hover) {
+  /* for expanded tiles, a slightly subtler but still noticeable hover shadow */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
 
 </style>
