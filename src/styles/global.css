@@ -55,7 +55,7 @@
   --T1-hover: #843f02;
 
   --T1-H1: #1a1a1a;
-  --T1-H2: #252525;
+  --T1-H2: #161c45;
   --T1-H3: #252525;
   --T1-body: #252525;
 
@@ -331,3 +331,16 @@ footer {
   outline-offset: 2px;
 }
 
+@media (max-width: 640px) {
+  /* If you’re using .layout on the body… */
+  :global(body.layout) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* If you’ve also got a wrapper inside… */
+  :global(.background-wrapper) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
