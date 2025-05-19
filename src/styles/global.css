@@ -130,7 +130,7 @@ body.layout {
 
 main {
   width: 700px;
-  max-width: calc(100% - 0.02em);
+  max-width: calc(100%);
   margin-left: auto;
   margin-right: auto;
   padding: 0 1em;
@@ -342,7 +342,7 @@ footer {
 /*────────────────────────────────────────*/
 .socials-table {
   border-collapse: collapse; /* if you want no gaps between cells */
-  width: 100%;
+  width: auto;
 }
 .socials-table th,
 .socials-table td {
