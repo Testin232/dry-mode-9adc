@@ -68,14 +68,7 @@ import { Icon }    from "astro-icon/components";
             </tr>
             <tr>
               <td>
-                <a
-                  href="#"
-                  class="social-entry"
-                  data-cal-link="teresew/intro"
-                  data-cal-namespace="intro"
-                  data-cal-config='{"layout":"month_view"}'
-                  aria-label="Book meeting"
-                >
+                <a href="#" class="social-entry" data-cal-link="teresew/intro" data-cal-namespace="intro" data-cal-config='{"layout":"month_view"}' aria-label="Book meeting">
                   <Icon name="mdi:calendar-clock" width="24" height="24" />
                   <span>Book meeting</span>
                 </a>
@@ -95,12 +88,7 @@ import { Icon }    from "astro-icon/components";
             <tr>
               <td>
                 <!-- ← Now *this* has the ID InitSubscr is looking for -->
-                <a
-                  href="#"
-                  id="open-subscribe"
-                  class="social-entry"
-                  aria-label="Subscribe to newsletter"
-                >
+                <a href="#" id="open-subscribe" class="social-entry" aria-label="Subscribe to newsletter">
                   <Icon name="mdi:bell-ring" width="24" height="24" />
                   <span>Newsletter</span>
                 </a>
@@ -108,13 +96,7 @@ import { Icon }    from "astro-icon/components";
             </tr>
             <tr>
               <td>
-                <a
-                  href="https://www.linkedin.com/in/teresewahlstrom"
-                  target="_blank"
-                  rel="noopener"
-                  class="social-entry"
-                  aria-label="Connect on LinkedIn"
-                >
+                <a href="https://www.linkedin.com/in/teresewahlstrom" target="_blank" rel="noopener" class="social-entry" aria-label="Connect on LinkedIn">
                   <Icon name="mdi:linkedin" width="24" height="24" />
                   <span>LinkedIn</span>
                 </a>
@@ -122,13 +104,8 @@ import { Icon }    from "astro-icon/components";
             </tr>
           </tbody>
         </table>
-
         <br/>
         <br/>
-
-
-
-
 
         <!-- now that #open-subscribe exists in the DOM, InitSubscr will wire it up -->
         <InitSubscr />
