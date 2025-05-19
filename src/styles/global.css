@@ -130,7 +130,7 @@ body.layout {
 
 main {
   width: 700px;
-  max-width: calc(100% - 0.05em);
+  max-width: calc(100% - 0.02em);
   margin-left: auto;
   margin-right: auto;
   padding: 0 1em;
@@ -332,3 +332,39 @@ footer {
   outline-offset: 2px;
 }
 
+
+
+
+
+
+/*────────────────────────────────────────*/
+/* socials-table: real table-cell centering */
+/*────────────────────────────────────────*/
+.socials-table {
+  border-collapse: collapse; /* if you want no gaps between cells */
+  width: 100%;
+}
+.socials-table th,
+.socials-table td {
+  /* ← keep these as real table-cells! */
+  vertical-align: middle;   /* center the cell’s CONTENT vertically */
+  text-align: left;         /* keep your left-align */
+  padding: 0.2em 0.2em;
+}
+
+/* now flex *inside* the cell, but don’t touch the cell itself */
+.socials-table .social-entry {
+  display: inline-flex;     /* make icon+text a flex row */
+  align-items: center;      /* vertically center icon and label */
+  gap: 0.5em;               /* optional space between icon & text */
+}
+
+/* remove underlines from links in the socials-table */
+.socials-table a {
+  text-decoration: none;
+}
+
+/* if you still want an underline on hover, add: */
+.socials-table a:hover {
+  text-decoration: underline;
+}
