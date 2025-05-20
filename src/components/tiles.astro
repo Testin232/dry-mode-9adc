@@ -79,7 +79,7 @@ export const hydrate = true;
 
   :global(.grid) {
     display: grid;
-    gap: 1rem;
+    gap: 0.75rem;
     grid-template-columns: 1fr;
     max-width: 860px;
     margin: 0 auto;
@@ -90,6 +90,8 @@ export const hydrate = true;
     font-size: 0.95rem;
   }
 
+  
+
 
   /*-----------------------*/
   /*-----------------------*/
@@ -99,7 +101,7 @@ export const hydrate = true;
     background: var(--T1-white);
     border: 1px solid #bebebe;
     border-radius: 1px;
-    padding: 0.6rem;
+    padding: 0.5rem 0.6rem;/* to get the same margin, due to H3-settings, we need different X and Y values */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
     cursor: pointer;
@@ -110,11 +112,14 @@ export const hydrate = true;
     background: var(--T1-white);
     border-color: var(--T1-tile-hover-border);
     border-width: 1px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
   }
+
 
   :global(.tile.expanded) {
     background: var(--T1-white);
-    border: 1px solid #ccc;
+    border: 1px solid #bebebe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     padding-bottom: 0.3rem; /* reduce from original 0.6rem */
   }
@@ -126,107 +131,90 @@ export const hydrate = true;
     line-height: 1.3;
   }
 
-  /*-----------------------*/
-  /*-----------------------*/
-  /*Switch & slider styling below*/
-  :global(.switch) {
-    position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 24px;
-    vertical-align: middle;
-  }
+/* ──────────────────────────────────────────────────── */
+/* 1. Switch container: sets size & positioning context */
+/* ──────────────────────────────────────────────────── */
+:global(.switch) {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
 
-  :global(.switch input) {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  } 
+/* ──────────────────────────────────────────────────── */
+/* 2. Hide the native checkbox input                      */
+/* ──────────────────────────────────────────────────── */
+:global(.switch input) {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
-  :global(.slider) {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--T1-switch-off-bgd); /* soft blue-gray */
-    border: 1px solid var(--T1-switch-off-border);
-    border-radius: 999px;
-    transition: all 0.2s ease;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-
-  :global(.slider:before) {
-    content: "";
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    top: 3.5px;
-    background-color: var(--T1-switch-off-circle); /* modern blue */
-    border-radius: 50%;
-    transition: transform 0.2s ease;
-  }
-
-  :global(input:checked + .slider) {
-    background-color: var(--T1-switch-on-bgd); /* brighter when active */
-    border-color: var(--T1-switch-on-border);
-  }
-
-  :global(input:checked + .slider:before) {
-    transform: translateX(20px);
-    background-color: var(--T1-switch-on-circle);
-  }
-
-
-
-
-
-
-
-/* Switch track */
+/* ──────────────────────────────────────────────────── */
+/* 3. Slider track (the “background” pill)              */
+/* ──────────────────────────────────────────────────── */
 :global(.slider) {
-  /* …existing props… */
+  position: absolute;
+  inset: 0;                         /* top:0; right:0; bottom:0; left:0 */
+  background-color: var(--T1-switch-off-bgd);
+  border: 1px solid #bebebe;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
   box-shadow:
-    inset 0 1px 2px rgba(0, 0, 0, 0.05), /* your existing inner shadow */
-    0 2px 4px rgba(0, 0, 0, 0.1);          /* new outer drop-shadow */
+    inset 0 1px 2px rgba(0,0,0,0.05),
+    0 1px 2px rgba(0,0,0,0.08);
 }
 
-/* Switch thumb (the circle) */
+
+
+/* ──────────────────────────────────────────────────── */
+/* 4. Slider thumb (the circular knob)                 */
+/* ──────────────────────────────────────────────────── */
 :global(.slider:before) {
-  /* …existing props… */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* subtle shadow under the knob */
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+
+  /* use the computed padding */
+  top: 3px;        /* = (22–16)/2 */
+  left: 3px;       /* = (22–16)/2 */
+
+  border-radius: 50%;
+  background-color: var(--T1-switch-off-circle);
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.20);
 }
 
-/* Heavier “lift” on switch hover */
+/* ──────────────────────────────────────────────────── */
+/* 5. Hover state: lift effect                         */
+/* ──────────────────────────────────────────────────── */
+/* hover lift effect (optional) */
 :global(.switch:hover .slider) {
-  /* keep the inset, but beef up the outer shadow to match tiles */
+  transform: translateY(-1px);
   box-shadow:
-    inset 0 1px 2px rgba(0, 0, 0, 0.05),
-    0 8px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
+    inset 0 1px 2px rgba(0,0,0,0.05),
+    0 4px 10px rgba(0,0,0,0.10);
 }
 
-/* Optionally, also give the thumb a stronger shadow on hover */
-:global(.switch:hover .slider:before) {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+/* ──────────────────────────────────────────────────── */
+/* 6. Checked (ON) state: change track & move knob     */
+/* ──────────────────────────────────────────────────── */
+/* checked state */
+:global(input:checked + .slider) {
+  background-color: var(--T1-switch-on-bgd);
+  border-color: var(--T1-switch-on-border);
 }
 
+:global(input:checked + .slider:before) {
+  transform: translateX(20px);   /* = 42–16–2·3 */
+  background-color: var(--T1-switch-on-circle);
+}
 
-:global(.tile:not(.expanded):hover) {
-  background: var(--T1-white);
+/* On hover, if switch is OFF (input not checked), make the track border red */
+:global(.switch:hover input:not(:checked) + .slider) {
   border-color: var(--T1-tile-hover-border);
-  /* heavier drop-shadow on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
 }
-
-:global(.tile.expanded:hover) {
-  /* for expanded tiles, a slightly subtler but still noticeable hover shadow */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
-}
-
 
 </style>

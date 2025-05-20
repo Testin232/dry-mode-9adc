@@ -1,6 +1,5 @@
 ---
 import { SITE_TITLE } from '../consts';
-import { Icon } from 'astro-icon/components';
 ---
 
 <header>
@@ -13,17 +12,18 @@ import { Icon } from 'astro-icon/components';
 <style>
 	header {
 		margin: 0;
-		padding: 11px 0;
+		padding: 5px 0;
 	}
 	
 	.logo-img {
 		width: 100px;
 		height: 90px;
-		border-radius: 0 !important;
-		filter: none !important;
-		mix-blend-mode: normal !important;
 		image-rendering: auto;
 		display: block;
 		position: relative;
+	}
+
+	header nav a {
+    display: inline-block;
 	}
 </style>
