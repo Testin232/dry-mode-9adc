@@ -17,13 +17,13 @@
 
 @font-face {
   font-family: "Inter-18pt";
-  src: url("/fonts/inter/Inter_18pt-Light.ttf") format("truetype");
+  src: url("/fonts/inter/Inter_18pt-Regular.ttf") format("truetype"); /* /fonts/roboto/Roboto-Regular.ttf */
   font-weight: 300;    /* Light */
   font-style: normal;
 }
 @font-face {
   font-family: "Inter-18pt";
-  src: url("/fonts/inter/Inter_18pt-Medium.ttf") format("truetype");
+  src: url("/fonts/inter/Inter_18pt-SemiBold.ttf") format("truetype"); /* /fonts/roboto/Roboto-SemiBold.ttf */
   font-weight: 400;    /* Medium */
   font-style: normal;
 }
@@ -140,7 +140,7 @@ body {
 .layout h2 {
   font-family: 'ComingSoon', sans-serif;
   color: var(--T1-H2);
-  font-size: 20pt;
+  font-size: 2rem;
   margin-top: 1.7em;       /* detta är nyckeln till rätt avst, •	Fix distance above “Follow” to match “Contact” */
 }
 
