@@ -1,6 +1,4 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
-
 const products = [
   {
     name: "T-Shirt",
@@ -19,7 +17,6 @@ const products = [
 ];
 ---
 
-<Layout title="Shop" description="Buy securely using Stripe" pubDate={new Date()}>
   <h1>Our Products</h1>
 
   <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
@@ -45,4 +42,3 @@ const products = [
       );
     }
   </script>
-</Layout>

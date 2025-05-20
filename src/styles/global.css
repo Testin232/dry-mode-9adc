@@ -97,7 +97,7 @@ html {
     linear-gradient(to right, var(--T1-grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--T1-grid-line) 1px, transparent 1px);
   background-size: 25px 25px;
-  background-position: top center;
+  background-position: 50% -10px;
   background-attachment: scroll;
 }
 
@@ -129,7 +129,7 @@ body {
 .layout h3 {
   margin-top: 0;
   margin-bottom: 0.25em;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .layout h1 {
@@ -148,7 +148,7 @@ body {
 .layout h3 {
   font-family: "Inter-18pt", sans-serif;
   font-weight: 400;
-  font-size: 14pt;        /* exactly 14 points */
+  font-size: 13pt;        /* exactly 14 points */
   color: var(--T1-H3)
 }
 
