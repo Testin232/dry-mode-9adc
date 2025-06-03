@@ -32,7 +32,7 @@
 :root {
   --heading-margin-top: 2.5rem;
 
-  --T1-accent: #2E3A86;
+  --T1-accent: #394183;
   --T1-white: #ffffff;
 
   --T1-links: var(--T1-accent);
@@ -144,14 +144,12 @@ body {
   margin-top: 1.7em;       /* detta är nyckeln till rätt avst, •	Fix distance above “Follow” to match “Contact” */
 }
 
-
 .layout h3 {
   font-family: "Inter-18pt", sans-serif;
   font-weight: 400;
   font-size: 13pt;        /* exactly 14 points */
   color: var(--T1-H3)
 }
-
 
 .layout p {
   margin-top: 0;
@@ -168,8 +166,6 @@ body {
 .layout li {
   margin-bottom: 0.25em;
 }
-
-
 
 
 /* ─── INTERACTIVE ELEMENTS ──────────────── */
@@ -220,6 +216,7 @@ a,
 .social-links a {
   transition: color 0.15s ease;
 }
+
 
 /* ─── UTILITIES ─────────────────────────── */
 img {
@@ -288,6 +285,7 @@ footer {
   box-sizing: border-box;
 }
 
+
 /* ─── ACCESSIBILITY ─────────────────────── */
 .sr-only {
   position: absolute !important;
@@ -318,6 +316,7 @@ footer {
   border-collapse: collapse; /* if you want no gaps between cells */
   width: auto;
 }
+
 .socials-table th,
 .socials-table td {
   /* ← keep these as real table-cells! */
